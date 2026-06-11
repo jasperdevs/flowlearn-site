@@ -10,30 +10,31 @@ import "@/global.css";
 import { ThemeProvider } from "@/providers/theme_provider";
 import { asset } from "@/lib/asset";
 
-const SITE_URL = "https://bloo.app";
+const SITE_URL = "https://flowlearn.app";
+const TAGLINE = "Learn anything, one flow at a time.";
 
 export const metadata: Metadata = {
-  title: "Bloo",
-  description: "Bloo — coming soon.",
+  title: "FlowLearn",
+  description: `FlowLearn — ${TAGLINE}`,
   metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: "Bloo",
-    description: "Bloo — coming soon.",
+    title: "FlowLearn",
+    description: `FlowLearn — ${TAGLINE}`,
     url: SITE_URL,
     images: [
       {
         url: "/og-preview.png",
         width: 1200,
         height: 720,
-        alt: "Bloo",
+        alt: "FlowLearn",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bloo",
-    description: "Bloo — coming soon.",
+    title: "FlowLearn",
+    description: `FlowLearn — ${TAGLINE}`,
     images: ["/og-preview.png"],
   },
 };
@@ -63,10 +64,11 @@ export default function RootLayout({
             <>
               <Navbar
                 icon={<AppIcon src={asset("/app_icon.png")} />}
-                appName="Bloo"
+                appName="FlowLearn"
                 links={[
                   { label: "Privacy", href: "/privacy" },
                   { label: "Terms", href: "/terms" },
+                  { label: "Help", href: "/help" },
                 ]}
                 action={null}
               />
@@ -78,8 +80,9 @@ export default function RootLayout({
                 links={[
                   { label: "Privacy", href: "/privacy" },
                   { label: "Terms", href: "/terms" },
+                  { label: "Help", href: "/help" },
                 ]}
-                footnoteLeading={`© ${new Date().getFullYear()} Bloo. All rights reserved.`}
+                footnoteLeading={`© ${new Date().getFullYear()} FlowLearn. All rights reserved.`}
               />
             </>
           )}

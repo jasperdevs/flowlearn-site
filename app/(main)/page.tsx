@@ -1,3 +1,4 @@
+import { CardGrid } from "@/components/card_grid/card_grid";
 import { Hero } from "@/components/hero/hero";
 import { Section } from "@/components/section/section";
 import { asset } from "@/lib/asset";
@@ -6,10 +7,10 @@ import Image from "next/image";
 export default function Page() {
   return (
     <>
-      <Section paddingTop={100} paddingBottom={160}>
+      <Section paddingTop={96} paddingBottom={40}>
         <Hero
-          title="Bloo"
-          subtitle="An iOS app that's still in the oven. Site coming soon."
+          title="FlowLearn"
+          subtitle="Learn anything, one flow at a time. Bite-sized, AI-built lessons that adapt to how your memory actually works — wrapped in a calm, focused app for iPhone."
           media={
             <div
               style={{
@@ -21,18 +22,65 @@ export default function Page() {
             >
               <Image
                 src={asset("/app_icon.png")}
-                alt="Bloo"
-                width={320}
-                height={320}
+                alt="FlowLearn app icon"
+                width={300}
+                height={300}
                 priority
                 style={{
-                  width: "min(320px, 60vw)",
+                  width: "min(300px, 58vw)",
                   height: "auto",
+                  borderRadius: "23%",
                 }}
               />
             </div>
           }
+          action={
+            <p style={{ opacity: 0.7, fontSize: "0.95rem", margin: 0 }}>
+              Coming soon to the App Store.
+            </p>
+          }
         />
+      </Section>
+
+      <Section title="Built for how you actually learn" paddingTop={24} paddingBottom={64}>
+        <CardGrid rowHeight={232}>
+          <CardGrid.IconCard
+            maxWidth="third"
+            iconName="auto_awesome"
+            title="AI-built lessons"
+            description="Describe any topic and FlowLearn writes a real, structured lesson in seconds — or pick from a growing library of courses."
+          />
+          <CardGrid.IconCard
+            maxWidth="third"
+            iconName="menu_book"
+            title="Bite-sized & focused"
+            description="Short lessons and quick checks you can finish in a few minutes. No clutter, no noise — just the next thing to learn."
+          />
+          <CardGrid.IconCard
+            maxWidth="third"
+            iconName="psychology"
+            title="Remembers for you"
+            description="Spaced recall predicts what's fading and brings it back at the right moment, so what you learn actually sticks."
+          />
+          <CardGrid.IconCard
+            maxWidth="third"
+            iconName="local_fire_department"
+            title="Daily streaks"
+            description="Build a learning habit with streaks, daily goals, and gentle reminders that keep you coming back."
+          />
+          <CardGrid.IconCard
+            maxWidth="third"
+            iconName="emoji_events"
+            title="XP & leagues"
+            description="Earn XP, level up, and climb the leaderboard with friends — progress you can see and feel."
+          />
+          <CardGrid.IconCard
+            maxWidth="third"
+            iconName="hub"
+            title="Your knowledge map"
+            description="Watch everything you learn connect into a living mind map of your own growing knowledge."
+          />
+        </CardGrid>
       </Section>
     </>
   );

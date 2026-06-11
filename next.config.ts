@@ -1,9 +1,10 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
-const isGhPages = process.env.GITHUB_PAGES === "true";
-const repoBase = "/bloo-site";
-const basePath = isGhPages ? repoBase : "";
+// FlowLearn deploys to GitHub Pages on the apex custom domain flowlearn.app
+// (see public/CNAME), which serves from the site root — so there is no
+// repo-name basePath. Asset URLs are prefixed with NEXT_PUBLIC_BASE_PATH ("").
+const basePath = "";
 
 // Expose basePath to client code so it can be prefixed onto public asset URLs.
 process.env.NEXT_PUBLIC_BASE_PATH = basePath;
