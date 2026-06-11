@@ -82,6 +82,39 @@ export default function Page() {
           />
         </CardGrid>
       </Section>
+
+      <Section title="See it in action" paddingTop={24} paddingBottom={88}>
+        <div
+          style={{
+            display: "flex",
+            gap: 24,
+            justifyContent: "center",
+            alignItems: "flex-start",
+            flexWrap: "wrap",
+          }}
+        >
+          {[
+            { src: "create", alt: "FlowLearn — describe any topic and get a lesson" },
+            { src: "mind-map", alt: "FlowLearn — your knowledge mind map" },
+            { src: "profile", alt: "FlowLearn — streaks, XP and stats" },
+          ].map((shot) => (
+            <Image
+              key={shot.src}
+              src={asset(`/screens/${shot.src}.png`)}
+              alt={shot.alt}
+              width={1206}
+              height={2622}
+              style={{
+                width: "min(248px, 64vw)",
+                height: "auto",
+                borderRadius: 30,
+                border: "1px solid rgba(0,0,0,0.06)",
+                boxShadow: "0 12px 44px rgba(0,0,0,0.16)",
+              }}
+            />
+          ))}
+        </div>
+      </Section>
     </>
   );
 }
