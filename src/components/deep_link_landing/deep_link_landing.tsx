@@ -17,16 +17,20 @@ type Landing =
 
 function classify(pathname: string): Landing {
   // Normalize: strip leading/trailing slashes, decode segments.
+  // Robust to a GitHub Pages project-site prefix (/flowlearn-site/...): find the
+  // keyword segment anywhere in the path and take the value that follows it.
   const segments = pathname
     .split("/")
     .map((s) => decodeURIComponent(s.trim()))
     .filter(Boolean);
 
-  if (segments[0] === "join" && segments[1]) {
-    return { kind: "invite", code: segments[1] };
+  const joinAt = segments.indexOf("join");
+  if (joinAt !== -1 && segments[joinAt + 1]) {
+    return { kind: "invite", code: segments[joinAt + 1] };
   }
-  if (segments[0] === "profile-share" && segments[1]) {
-    return { kind: "profile", handle: segments[1].replace(/^@/, "") };
+  const shareAt = segments.indexOf("profile-share");
+  if (shareAt !== -1 && segments[shareAt + 1]) {
+    return { kind: "profile", handle: segments[shareAt + 1].replace(/^@/, "") };
   }
   return { kind: "notFound" };
 }

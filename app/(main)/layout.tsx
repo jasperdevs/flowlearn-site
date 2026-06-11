@@ -10,7 +10,7 @@ import "@/global.css";
 import { ThemeProvider } from "@/providers/theme_provider";
 import { asset } from "@/lib/asset";
 
-const SITE_URL = "https://flowlearn.app";
+const SITE_URL = "https://jasperdevs.github.io/flowlearn-site";
 const TAGLINE = "Learn anything, one flow at a time.";
 
 export const metadata: Metadata = {
